@@ -1,9 +1,6 @@
 package main;
 
 import dao.*;
-import database.DBConnection;
-import model.Branch;
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -90,11 +87,13 @@ public class Main{
                             if(AdminDAO.authenticateEmployee(email, pass)) {
                                 System.out.println("Logged in Successfully");
                                 isEmployeeLoggedIn = true;
+                            }else{
+                                System.out.println("Logged Failed");
                             }
                         }
                         else if(isEmployeeLoggedIn){
                             System.out.println("1. create customer Account");
-                            System.out.println("3. EXIT");
+                            System.out.println("4. EXIT");
                             System.out.println("Enter Choice: ");
                             int choi = sc.nextInt();
                             sc.nextLine();
@@ -119,6 +118,10 @@ public class Main{
                                 }
                                 case 3:{
                                     break;
+                                }
+                                case 4:{
+                                    System.out.println("Byee");
+                                    System.exit(0);
                                 }
                                 default:{
                                     System.out.println("Invalid Choice");
@@ -201,6 +204,8 @@ public class Main{
                     break;
                 }
                 case 4:{
+                    sc.close();
+                    System.out.println("Thank you for using Banking Management System");
                     System.exit(0);
                 }
             }
